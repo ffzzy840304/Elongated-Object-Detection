@@ -1,1 +1,1 @@
-This is an project for elongated object detection.
+This is a project for elongated object detection.
