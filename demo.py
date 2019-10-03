@@ -144,7 +144,7 @@ if __name__ == '__main__':
 
   print('Called with args:')
   print(args)
-  args.set_cfgs = ['ANCHOR_SCALES', '[8, 16, 32]', 'ANCHOR_RATIOS', '[0.5,1,2]']
+  args.set_cfgs = ['ANCHOR_SCALES', '[4, 8, 16, 32]', 'ANCHOR_RATIOS', '[0.5,1,2]']
   if args.cfg_file is not None:
     cfg_from_file(args.cfg_file)
   if args.set_cfgs is not None:
@@ -165,7 +165,7 @@ if __name__ == '__main__':
   load_name = os.path.join(input_dir,
     'faster_rcnn_{}_{}_{}.pth'.format(args.checksession, args.checkepoch, args.checkpoint))
   
-  """
+  
   pascal_classes = np.asarray(['__background__',
                            'person','bicycle','car','motorcycle','airplane','bus','train','truck',
                            'boat','traffic_light','fire_hydrant','stop_sign','parking_meter','bench',
@@ -177,38 +177,7 @@ if __name__ == '__main__':
                            'chair','couch','potted_plant','bed','dining_table','toilet','tv','laptop',
                            'mouse','remote','keyboard','cell_phone','microwave','oven','toaster','sink',
                            'refrigerator','book','clock','vase','scissors','teddy_bear','hair_drier','toothbrush'])
-  """
-  pascal_classes = np.asarray(['__background__',  # always index 0
-                        'breather_plug', 'casing_base', 'casing_base_with_3_hub_covers',
-                        'casing_base_with_input_hub_cover', 'casing_base_with_oil_plugs',
-                        'casing_base_with_output_hub_cover','casing_base_with_small_hub_cover','casing_bolts',
-                        'casing_nuts', 'casing_top', 'full_assembly', 'hub_cover_bolts', 'input_hub_covers',
-                        'small_hub_covers', 'input_subassembly', 'oil_level_indicator', 'oil_plugs', 'output_hub_cover',
-                        'output_subassembly', 'tranfer_subassembly'])
- # pascal_classes = np.asarray(['__background__',
- #                              'toothbrush'])
-  #                     'part_1', 'part_2', 'part_3', 'part_4','part_5',
-  #                     'part_6', 'part_7', 'part_8', 'part_9', 'part_10',
-  #                     'part_11', 'part_12', 'part_13', 'part_14','part_15',
-  #                     'part_16', 'part_17', 'part_18','part_19','part_20',
-  #                     'part_21'])
-  """
-  pascal_classes=np.asarray(['__background__',
-                           'person','bicycle','car','motorcycle','airplane','bus','train','truck',
-                           'boat','traffic_light','fire_hydrant','stop_sign','parking_meter','bench',
-                           'bird','cat','dog','horse','sheep','cow','elephant','bear','zebra','giraffe',
-                           'backpack','umbrella','handbag','tie','suitcase','frisbee','skis','snowboard',
-                           'sports_ball','kite','baseball_bat','baseball_glove','skateboard','surfboard',
-                           'tennis_racket','bottle','wine_glass','cup','fork','knife','spoon','bowl','banana',
-                           'apple','sandwich','orange','broccoli','carrot','hot_dog','pizza','donut','cake',
-                           'chair','couch','potted_plant','bed','dining_table','toilet','tv','laptop',
-                           'mouse','remote','keyboard','cell_phone','microwave','oven','toaster','sink',
-                           'refrigerator','book','clock','vase','scissors','teddy_bear','hair_drier','toothbrush'])
-  """
-#  pascal_classes=np.asarray(['__background__',
-                            # 'oil_bottle','fluid_bottle','oil_filter','funnel','engine','blue_funnel','tissue_box',
-                            #  'drill','cracker_box','spam']) 
- #                             'crack'])
+  
   # initilize the network here.
   if args.net == 'vgg16':
     fasterRCNN = vgg16(pascal_classes, pretrained=False, class_agnostic=args.class_agnostic)
