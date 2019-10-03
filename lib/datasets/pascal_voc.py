@@ -45,15 +45,7 @@ class pascal_voc(imdb):
         self._devkit_path = self._get_default_path() if devkit_path is None \
             else devkit_path
         self._data_path = os.path.join(self._devkit_path, 'VOC' + self._year)
-        self._classes = (['__background__',  # always index 0
-                        'breather_plug', 'casing_base', 'casing_base_with_3_hub_covers',
-                        'casing_base_with_input_hub_cover', 'casing_base_with_oil_plugs',
-                        'casing_base_with_output_hub_cover','casing_base_with_small_hub_cover','casing_bolts',
-                        'casing_nuts', 'casing_top', 'full_assembly', 'hub_cover_bolts', 'input_hub_covers',
-                        'small_hub_covers', 'input_subassembly', 'oil_level_indicator', 'oil_plugs', 'output_hub_cover',
-                        'output_subassembly', 'tranfer_subassembly'])
-
-        """
+        
         self._classes=(['__background__',
                            'person','bicycle','car','motorcycle','airplane','bus','train','truck',
                            'boat','traffic_light','fire_hydrant','stop_sign','parking_meter','bench',
@@ -65,7 +57,7 @@ class pascal_voc(imdb):
                            'chair','couch','potted_plant','bed','dining_table','toilet','tv','laptop',
                            'mouse','remote','keyboard','cell_phone','microwave','oven','toaster','sink',
                            'refrigerator','book','clock','vase','scissors','teddy_bear','hair_drier','toothbrush'])
-        """
+        
          
         self._class_to_ind = dict(zip(self.classes, xrange(self.num_classes)))
         self._image_ext = '.jpg'
